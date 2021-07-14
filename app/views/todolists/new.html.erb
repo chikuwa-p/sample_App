@@ -1,0 +1,21 @@
+<h1>新規投稿</h1>
+<!-- form_with部分 -->
+<%= form_with model: @list, url:'/todolists', local:true do |f| %>
+
+<% if @list.errors.any? %>
+  <div id="error_explanation">
+    <h2>エラーが発生しました。以下ご確認お願いいたします。</h2>
+    <ul>
+      <% @list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿' %>
+<% end %>

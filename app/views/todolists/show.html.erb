@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <p id="notice">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+<h2>タイトル</h2>
+<p><%= @list.title %></p>
+<h2>本文</h2>
+<p><%= @list.body %></p>
+<%= link_to "編集", edit_todolist_path(@list.id) %>
